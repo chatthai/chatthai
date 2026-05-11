@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Thai Thaitown | Haymarket</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0b0b;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .top-bar {
+      background: #ffc210;
+      color: #0b0b0b;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    header {
+      min-height: 92vh;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.38) 48%, rgba(0, 0, 0, 0.18) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.58) 100%),
+        url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 7%;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      width: auto;
+      height: 96px;
+      max-width: 180px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: #ffc210;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 40px 7% 80px;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #ffc210;
+      color: #0b0b0b;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(46px, 8vw, 96px);
+      line-height: 0.92;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: clamp(18px, 2vw, 24px);
+      max-width: 630px;
+      color: #f3f3f3;
+      margin-bottom: 36px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #ffc210;
+      color: #0b0b0b;
+      border: 2px solid #ffc210;
+    }
+
+    .btn-primary:hover {
+      background: #ffffff;
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 2px solid #ffffff;
+      color: #ffffff;
+    }
+
+    .btn-secondary:hover {
+      border-color: #ffc210;
+      color: #ffc210;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 84px 7%;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 62px);
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      color: #d7d7d7;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .yellow-text {
+      color: #ffc210;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #151515;
+      border: 1px solid rgba(255, 194, 16, 0.25);
+      border-radius: 26px;
+      padding: 30px;
+      min-height: 240px;
+    }
+
+    .card-number {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #ffc210;
+      color: #0b0b0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      margin-bottom: 22px;
+    }
+
+    .card h3 {
+      font-size: 25px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      color: #cfcfcf;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: center;
+      background: #ffc210;
+      color: #0b0b0b;
+    }
+
+    .split .section-intro {
+      color: #202020;
+    }
+
+    .menu-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.16);
+    }
+
+    .menu-item strong {
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    .menu-item span {
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .image-box {
+      min-height: 480px;
+      border-radius: 34px;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)),
+        url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 16px 16px 0 #0b0b0b;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .info-box {
+      background: #151515;
+      border-radius: 26px;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .info-box h3 {
+      color: #ffc210;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+    }
+
+    .info-box p {
+      color: #d0d0d0;
+    }
+
+    .booking {
+      text-align: center;
+      background: #111111;
+      border-top: 1px solid rgba(255, 194, 16, 0.28);
+      border-bottom: 1px solid rgba(255, 194, 16, 0.28);
+    }
+
+    .booking p {
+      max-width: 700px;
+      margin: 0 auto 32px;
+      color: #d7d7d7;
+      font-size: 18px;
+    }
+
+    footer {
+      padding: 36px 7%;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: #bdbdbd;
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: #ffc210;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .cards,
+      .split,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 80px;
+      }
+
+      .logo img {
+        height: 74px;
+        max-width: 140px;
+      }
+
+      .image-box {
+        min-height: 320px;
+      }
+
+      .menu-item {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar"> Bookings & Catering Enquiries Open Now</div>
+
+  <header id="home">
+    <nav>
+      <a href="#home" class="logo" aria-label="Chat Thai Thaitown Home">
+        <img src="logo.png" alt="Chat Thai Thaitown logo" />
+      </a>
+      <div class="nav-links">
+        <!-- <a href="#about">About</a> -->
+        <a href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link.pdf" target="_blank">Lunch Menu</a>
+        <a href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link.pdf" target="_blank">Dinner Menu</a>
+        <a href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link.pdf" target="_blank">Supper Club Menu</a>
+        <a href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link">Catering</a>
+        <!-- <a href="#visit">Visit</a> -->
+        <!-- <a href="mailto:booking@amonrat.com.au">Book</a> -->
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Haymarket · Sydney</span>
+        <h1>Thai food, city energy.</h1>
+        <p>Welcome to Chat Thai OG, a lively Haymarket dining spot serving Thai favourites, bold flavours, casual catch-ups, and group-friendly meals in the heart of Sydney.
+          </p>
+          <p>
+          Booking: <u>booking@amonrat.com.au</u>
+        </p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="mailto:booking@amonrat.com.au?subject=Booking%20Enquiry%20-%20Chat%20Thai%20Thaitown">Booking with us</a>
+          <!-- <a class="btn btn-secondary" href="menu.pdf" target="_blank">View Menu PDF</a> -->
+          <!-- <a class="btn btn-secondary" href="catering.pdf" target="_blank">View Catering PDF</a> -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2 class="section-title">Made for <span class="yellow-text">sharing.</span></h2>
+    <p class="section-intro">From quick lunches to late-night cravings, group dinners, and office catering</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-number">01</div>
+        <h3>Dine In (Lunch Time)</h3>
+         <a class="btn btn-secondary" href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link.pdf" target="_blank">Lunch Menu</a>
+        <!-- <p>Casual, energetic Thai dining in the middle of Thaitown. Perfect for friends, family, students, and after-work meals.</p> -->
+      </div>
+      <div class="card">
+        <div class="card-number">02</div>
+        <h3>Dine In (Dinner Time)</h3>
+         <a class="btn btn-secondary" href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link.pdf" target="_blank">Dinner Menu</a>
+        <!-- <p>Grab your favourite Thai dishes and enjoy them wherever your day takes you.</p> -->
+      </div>
+      <div class="card">
+      <div class="card-number">03</div>
+        <h3>Supper Club</h3>
+        <!-- <p>Grab your favourite Thai dishes and enjoy them wherever your day takes you.</p> -->
+         <a class="btn btn-secondary" href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link.pdf" target="_blank">Supper Club Menu</a>
+      </div>
+      <div class="card">
+        <div class="card-number">04</div>
+        <h3>Catering</h3>
+        <p>Corporate lunch boxes, shared trays, curry, soup, and group-friendly catering options for meetings and events.</p>
+        <br />
+        <a class="btn btn-secondary" href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link">Catering Menu</a>
+        </div>
+      </div>
+
+  </section>
+
+
+  <footer>
+    <p><strong>Chat Thai Thaitown</strong> · Haymarket Sydney</p>
+    <p>Temporary website · <a href="mailto:booking@amonrat.com.au">booking@amonrat.com.au</a></p>
+  </footer>
+</body>
+</html>

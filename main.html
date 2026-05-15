@@ -32,7 +32,7 @@
       font-weight: 700;
       letter-spacing: 0.03em;
     }
-
+/* 
     header {
       min-height: 92vh;
       background:
@@ -43,7 +43,58 @@
       background-position: center;
       display: flex;
       flex-direction: column;
-    }
+    } */
+
+
+  /* header {
+    min-height: 92vh;
+    background-image:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.38) 48%, rgba(0, 0, 0, 0.18) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.58) 100%),
+      url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+} */
+header {
+  position: relative;
+  min-height: 92vh;
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.38) 48%, rgba(0, 0, 0, 0.18) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.58) 100%),
+    url('bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.38) 48%, rgba(0, 0, 0, 0.18) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.58) 100%),
+    var(--next-bg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.3s ease;
+  z-index: 0;
+}
+
+header.is-changing::before {
+  opacity: 1;
+}
+
+header > * {
+  position: relative;
+  z-index: 1;
+}
+
 
     nav {
       width: 100%;
@@ -89,6 +140,14 @@
 
     .hero-content {
       max-width: 760px;
+    }
+
+    .hero .contact-line {
+      margin-bottom: 6px;
+    }
+
+    .hero .contact-line + .contact-line {
+      margin-bottom: 28px;
     }
 
     .eyebrow {
@@ -350,6 +409,37 @@
         flex-direction: column;
       }
     }
+
+  .location-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.location-tab {
+  display: inline-block;
+  background: #f2f2f2;
+  color: #0b0b0b;
+  padding: 8px 14px;
+  border: 1px solid #d0d0d0;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.location-tab.active {
+  background: #ffc210;
+  color: #0b0b0b;
+  border: 3px solid #0b0b0b;
+}
+
+
+
   </style>
 </head>
 <body>
@@ -362,11 +452,11 @@
       </a>
       <div class="nav-links">
         <!-- <a href="#about">About</a> -->
-        <a href="https://drive.google.com/file/d/1rEGWEMhCnyeEq_5WwgPoN-uJC6ZgaCRk/view?usp=share_link" target="_blank">Lunch Menu</a>
-        <a href="https://drive.google.com/file/d/1UzPCizb8A3jzqiGr5pci4OqpcjnUV1bx/view?usp=share_link" target="_blank">Dinner Menu</a>
+        <a href="contact.html" target="_blank">Contact us</a>
+        <!-- <a href="https://drive.google.com/file/d/1UzPCizb8A3jzqiGr5pci4OqpcjnUV1bx/view?usp=share_link" target="_blank">Dinner Menu</a>
         <a href="https://drive.google.com/file/d/1I40ZmdoFu5eerhamrxy9HH67ml-E8_DA/view?usp=share_link" target="_blank">Supper Club Menu</a>
         <a href="https://drive.google.com/file/d/1VDTh_NlRy8zYG77w-uf6F65FBqrsKDwK/view?usp=share_link" target="_blank">Banquet Menu</a>
-        <a href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link">Catering</a>
+        <a href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link">Catering</a> -->
         <!-- <a href="#visit">Visit</a> -->
         <!-- <a href="mailto:bookings@amonrat.com.au">Book</a> -->
       </div>
@@ -374,67 +464,269 @@
 
     <div class="hero">
       <div class="hero-content">
-        <span class="eyebrow">CHAT THAI OG · Haymarket · Sydney</span>
-        <h1>Thai food, city energy.</h1>
-        <p>Welcome to Chat Thai OG, a lively Haymarket dining spot serving Thai favourites, bold flavours, casual catch-ups, and group-friendly meals in the heart of Sydney.
-          </p>
-          <p>
-          Booking: <u>bookings@amonrat.com.au</u>
+         <div class="location-tabs" role="tablist" aria-label="Chat Thai locations">
+          <button class="location-tab active" type="button" data-location="thaitown">
+                  CHAT THAI OG · Haymarket · Sydney
+          </button>
+         <button class="location-tab" type="button" data-location="randwick">
+                  CHAT THAI Randwick
+          </button>
+          <button class="location-tab" type="button" data-location="catering">
+          CHAT THAI Catering
+          </button>
+        </div>
+        
+        <h1 id="locationTitle">Thai food, city energy.</h1>
+        <p id="locationCopy">
+          Welcome to Chat Thai OG, a lively Haymarket dining spot serving Thai favourites, bold flavours, casual catch-ups, and group-friendly meals in the heart of Sydney.
         </p>
-        <div class="buttons">
-          <a class="btn btn-primary" href="mailto:bookings@amonrat.com.au?subject=Booking%20Enquiry%20-%20Chat%20Thai%20Thaitown">Booking with us</a>
-          <!-- <a class="btn btn-secondary" href="menu.pdf" target="_blank">View Menu PDF</a> -->
-          <!-- <a class="btn btn-secondary" href="catering.pdf" target="_blank">View Catering PDF</a> -->
+      <p class="contact-line">
+              Contact us: <u>bookings@amonrat.com.au</u>
+      </p>
+      <p class="contact-line" id="phoneLine">
+            Call: <a id="phoneLink" href="tel:+61291271808"><u id="phoneText">02 9127 1808</u></a>
+        </p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" id="bookingLink"
+            href="mailto:bookings@amonrat.com.au?subject=Booking%20Enquiry%20-%20Chat%20Thai%20Haymarket&body=Hi%20Chat%20Thai%20Team%2C%0A%0AI%20would%20like%20to%20make%20a%20booking%20for%20Chat%20Thai%20Haymarket.%0A%0AName%3A%20%0APhone%3A%20%0AEmail%3A%20%0ADate%3A%20%0ATime%3A%20%0ANumber%20of%20guests%3A%20%0ASpecial%20requests%3A%20%0A%0AThank%20you%20%3A%29">
+            Booking with us
+            
+          </a>
+      </div>
         </div>
       </div>
-    </div>
+
   </header>
 
-  <section id="about">
-    <h2 class="section-title">Made for <span class="yellow-text">sharing.</span></h2>
-    <p class="section-intro">From quick lunches to late-night cravings, group dinners, and office catering</p>
+ <section id="about">
+  <h2 class="section-title" id="aboutTitle">
+    Made for <span class="yellow-text">sharing.</span>
+  </h2>
+  <p class="section-intro" id="aboutIntro">
+    From quick lunches to late-night cravings, group dinners, and office catering
+  </p>
 
-    <div class="cards">
+  <div class="cards" id="aboutCards">
+    <!-- your default Thaitown cards stay here -->
+  </div>
+</section>
+
+
+
+  <footer>
+    <p><strong>Chat Thai Thaitown</strong> · Haymarket Sydney</p>
+    <p>Temporary website · <a href="mailto:bookings@amonrat.com.au">bookings@amonrat.com.au</a></p>
+  </footer>
+</body>
+</html>
+
+<script>
+const locations = {
+  thaitown: {
+    title: "Thai food, city energy.",
+    copy: "Welcome to Chat Thai OG, a lively Haymarket dining spot serving Thai favourites, bold flavours, casual catch-ups, and group-friendly meals in the heart of Sydney.",
+    venue: "Chat Thai Haymarket (Thaitown)",
+    type: "booking",
+    background: "bg.jpg",
+    phoneText: "02 9127 1808",
+    phoneHref: "+61291271808",
+    aboutTitle: `Made for <span class="yellow-text">sharing.</span>`,
+    aboutIntro: "From quick lunches to late-night cravings, group dinners, and office catering",
+    cards: `
       <div class="card">
         <div class="card-number">01</div>
-        <h3>Dine In (Lunch Time)</h3>
-         <a class="btn btn-secondary" href="https://drive.google.com/file/d/1rEGWEMhCnyeEq_5WwgPoN-uJC6ZgaCRk/view?usp=share_link" target="_blank">Lunch Menu</a>
-        <!-- <p>Casual, energetic Thai dining in the middle of Thaitown. Perfect for friends, family, students, and after-work meals.</p> -->
+        <h3>Lunch</h3>
+        <a class="btn btn-secondary" href="https://drive.google.com/file/d/1rEGWEMhCnyeEq_5WwgPoN-uJC6ZgaCRk/view?usp=share_link" target="_blank">Lunch Menu</a>
       </div>
       <div class="card">
         <div class="card-number">02</div>
-        <h3>Dine In (Dinner Time)</h3>
-         <a class="btn btn-secondary" href="https://drive.google.com/file/d/1UzPCizb8A3jzqiGr5pci4OqpcjnUV1bx/view?usp=share_link" target="_blank">Dinner Menu</a>
-        <!-- <p>Grab your favourite Thai dishes and enjoy them wherever your day takes you.</p> -->
+        <h3>Dinner</h3>
+        <a class="btn btn-secondary" href="https://drive.google.com/file/d/1UzPCizb8A3jzqiGr5pci4OqpcjnUV1bx/view?usp=share_link" target="_blank">Dinner Menu</a>
       </div>
       <div class="card">
-      <div class="card-number">03</div>
+        <div class="card-number">03</div>
         <h3>Supper Club</h3>
-        <!-- <p>Grab your favourite Thai dishes and enjoy them wherever your day takes you.</p> -->
-         <a class="btn btn-secondary" href="https://drive.google.com/file/d/1I40ZmdoFu5eerhamrxy9HH67ml-E8_DA/view?usp=share_link" target="_blank">Supper Club Menu</a>
+        <a class="btn btn-secondary" href="https://drive.google.com/file/d/1I40ZmdoFu5eerhamrxy9HH67ml-E8_DA/view?usp=share_link" target="_blank">Supper Club Menu</a>
       </div>
       <div class="card">
-      <div class="card-number">04</div>
+        <div class="card-number">04</div>
         <h3>Banquet</h3>
-        <!-- <p>Grab your favourite Thai dishes and enjoy them wherever your day takes you.</p> -->
-         <a class="btn btn-secondary" href="https://drive.google.com/file/d/1VDTh_NlRy8zYG77w-uf6F65FBqrsKDwK/view?usp=share_link" target="_blank">Banquet Menu</a>
-      
-    </div>
+        <a class="btn btn-secondary" href="https://drive.google.com/file/d/1VDTh_NlRy8zYG77w-uf6F65FBqrsKDwK/view?usp=share_link" target="_blank">Banquet Menu</a>
+      </div>
       <div class="card">
         <div class="card-number">05</div>
         <h3>Catering</h3>
         <p>Corporate lunch boxes, shared trays, curry, soup, and group-friendly catering options for meetings and events.</p>
         <br />
-        <a class="btn btn-secondary" href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link">Catering Menu</a>
-        </div>
+        <a class="btn btn-secondary" href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link" target="_blank">Catering Menu</a>
       </div>
+    `
+  },
 
-  </section>
+  randwick: {
+    title: "Thai favourites in Randwick.",
+    copy: "Welcome to Chat Thai Randwick, a relaxed Eastern Suburbs dining spot serving bold Thai flavours, casual meals, family dinners, and group-friendly catch-ups.",
+    venue: "Chat Thai Randwick",
+    type: "booking",
+    background: "randwick.jpg",
+    phoneText: "02 9398 5527",
+    phoneHref: "+61293985527",
+    aboutTitle: `Randwick <span class="yellow-text">menus.</span>`,
+    aboutIntro: "Relaxed Thai dining for lunch, dinner, family meals, and local catch-ups.",
+    // cards: `
+    //   <div class="card">
+    //     <div class="card-number">01</div>
+    //     <h3>Lunch</h3>
+    //     <p>Thai favourites for quick lunches, casual meals, and relaxed daytime dining in Randwick.</p>
+    //     <br />
+    //     <a class="btn btn-secondary" href="#" target="_blank">Lunch Menu</a>
+    //   </div>
+    //   <div class="card">
+    //     <div class="card-number">02</div>
+    //     <h3>Dinner</h3>
+    //     <p>Bold Thai dishes, shared plates, noodles, curries, stir-fries, and group-friendly dinner options.</p>
+    //     <br />
+    //     <a class="btn btn-secondary" href="https://drive.google.com/file/d/1jekUnANJdV4P3qUj0v6I6khjpSPmkW9R/view?usp=sharing" target="_blank">Dinner Menu</a>
+    //   </div>
+      
+    // `
+    cards: `
+      <div class="card">
+        <div class="card-number">01</div>
+        <h3>Dinner</h3>
+        <p>Bold Thai dishes, shared plates, noodles, curries, stir-fries, and group-friendly dinner options.</p>
+        <br />
+        <a class="btn btn-secondary" href="https://drive.google.com/file/d/1jekUnANJdV4P3qUj0v6I6khjpSPmkW9R/view?usp=sharing" target="_blank">Dinner Menu</a>
+      </div>
+      
+    `
+  },
+
+catering: {
+  title: "Catering for every occasion.",
+  copy: "Bring Chat Thai flavours to your next event with catering for office lunches, celebrations, group gatherings, and special occasions across Sydney.",
+  venue: "Chat Thai Catering",
+  type: "catering",
+  background: "bg.jpg",
+  aboutTitle: `Made for <span class="yellow-text">sharing.</span>`,
+  aboutIntro: "From quick lunches to late-night cravings, group dinners, and office catering",
+  cards: `
+    <div class="card">
+      <div class="card-number">01</div>
+      <h3>Catering</h3>
+      <p>Corporate lunch boxes, shared trays, curry, soup, and group-friendly catering options for meetings and events.</p>
+      <br />
+      <a class="btn btn-secondary" href="https://drive.google.com/file/d/1tZiv7oAtYJ5dVbYvxbdulV931ZsfmCvS/view?usp=share_link" target="_blank">Catering Menu</a>
+    </div>
+  `
+}
+
+};
 
 
-  <footer>
-    <p><strong>Chat Thai Thaitown</strong> · Haymarket Sydney</p>
-    <p>Temporary website · <a href="mailto:bookings@amonrat.com.au">booking@amonrat.com.au</a></p>
-  </footer>
-</body>
-</html>
+  const header = document.getElementById("home");
+  const title = document.getElementById("locationTitle");
+  const copy = document.getElementById("locationCopy");
+  const bookingLink = document.getElementById("bookingLink");
+  const phoneLine = document.getElementById("phoneLine");
+  const phoneLink = document.getElementById("phoneLink");
+  const phoneText = document.getElementById("phoneText");
+  const aboutTitle = document.getElementById("aboutTitle");
+  const aboutIntro = document.getElementById("aboutIntro");
+  const aboutCards = document.getElementById("aboutCards");
+
+
+  function setHeaderBackground(image) {
+  header.style.setProperty("--next-bg", `url('${image}')`);
+  header.classList.add("is-changing");
+
+  setTimeout(() => {
+    header.style.backgroundImage = `
+      linear-gradient(90deg, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.38) 48%, rgba(0, 0, 0, 0.18) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.58) 100%),
+      url('${image}')
+    `;
+
+    header.classList.remove("is-changing");
+  }, 900);
+}
+
+  document.querySelectorAll(".location-tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const location = locations[tab.dataset.location];
+
+      document.querySelectorAll(".location-tab").forEach((button) => {
+        button.classList.remove("active");
+      });
+
+      // tab.classList.add("active");
+      // title.textContent = location.title;
+      // copy.textContent = location.copy;
+      // setHeaderBackground(location.background);
+      tab.classList.add("active");
+      title.textContent = location.title;
+      copy.textContent = location.copy;
+      aboutTitle.innerHTML = location.aboutTitle;
+      aboutIntro.textContent = location.aboutIntro;
+      aboutCards.innerHTML = location.cards;
+      setHeaderBackground(location.background);
+
+      if (location.type === "catering") {
+        phoneLine.style.display = "none";
+      } else {
+        phoneLine.style.display = "block";
+        phoneText.textContent = location.phoneText;
+        phoneLink.href = `tel:${location.phoneHref}`;
+      }
+
+      const subject = location.type === "catering"
+        ? "Catering Enquiry - Chat Thai"
+        : `Enquiry - ${location.venue}`;
+
+      const body = location.type === "catering"
+        ? `Hi Chat Thai Team,
+
+I would like to enquire about catering.
+
+Name:
+Phone:
+Email:
+Event date:
+Event time:
+Event location:
+Number of guests:
+Catering details:
+Special requests:
+
+Thank you :)`
+        : `Hi Chat Thai Team,
+
+I would like to make a booking for ${location.venue}.
+
+Name:
+Phone:
+Email:
+Date:
+Time:
+Number of guests:
+Special requests:
+
+Thank you :)`;
+
+      bookingLink.textContent = location.type === "catering"
+        ? "Enquire about catering"
+        : "Booking with us";
+
+      bookingLink.href = `mailto:bookings@amonrat.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  });
+
+function updateAboutSection(location) {
+  aboutTitle.innerHTML = location.aboutTitle;
+  aboutIntro.textContent = location.aboutIntro;
+  aboutCards.innerHTML = location.cards;
+}
+
+updateAboutSection(locations.thaitown);
+</script>

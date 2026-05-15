@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Chat Thai</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0b0b;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .top-bar {
+      background: #ffc210;
+      color: #0b0b0b;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 7%;
+    }
+
+    .logo img {
+      height: 96px;
+      max-width: 180px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: #ffc210;
+    }
+
+    main {
+      padding: 70px 7% 100px;
+    }
+
+    h1 {
+      font-size: clamp(46px, 8vw, 92px);
+      line-height: 0.92;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .intro {
+      max-width: 720px;
+      color: #d7d7d7;
+      font-size: 20px;
+      margin-bottom: 44px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .contact-card {
+      background: #151515;
+      border: 1px solid rgba(255, 194, 16, 0.25);
+      border-radius: 26px;
+      padding: 30px;
+    }
+
+    .contact-card h2 {
+      color: #ffc210;
+      font-size: 20px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .contact-card p {
+      color: #d0d0d0;
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: #ffc210;
+      color: #0b0b0b;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 36px 7%;
+      color: #bdbdbd;
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: #ffc210;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .logo img {
+        height: 74px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .btn-map {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    margin-right: 8px;
+    }
+
+    .btn-map:hover {
+    border-color: #ffc210;
+    color: #ffc210;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="top-bar">Bookings & Catering Enquiries Open Now</div>
+
+  <nav>
+    <a href="main.html" class="logo" aria-label="Chat Thai Home">
+      <img src="logo.png" alt="Chat Thai logo" />
+    </a>
+    <div class="nav-links">
+      <a href="main.html">Home</a>
+      <a href="contact.html">Contact us</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Contact us</h1>
+    <p class="intro">
+      For bookings, catering, group enquiries, and general questions, contact the Chat Thai team below.
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h2>Chat Thai OG</h2>
+        <p>Haymarket · Sydney</p>
+        <p>20 Campbell St, Haymarket NSW 2000</p>
+        <p><a href="tel:+61291271808"><u>02 9127 1808</u></a></p>
+        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=Chat%20Thai%20Haymarket%20Sydney" target="_blank">
+            Open Google Map 
+            </a>
+
+        <a class="btn" href="mailto:bookings@amonrat.com.au?subject=Enquiry%20-%20Chat%20Thai%20Haymarket">Email Haymarket</a>
+      </div>
+
+      <div class="contact-card">
+        <h2>Chat Thai Randwick</h2>
+        <p>Randwick · Sydney</p>
+        <p>222A Carrington Rd, Randwick NSW 2031</p>
+        <p><a href="tel:+61293985527"><u>02 9398 5527</u></a></p>
+        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=Chat%20Thai%20Randwick%20Sydney" target="_blank">
+                Open Google Map
+            </a>
+
+        <a class="btn" href="mailto:bookings@amonrat.com.au?subject=Enquiry%20-%20Chat%20Thai%20Randwick">Email Randwick</a>
+      </div>
+
+      <div class="contact-card">
+        <h2>Catering</h2>
+        <p>Office lunches, events, celebrations, and group catering.</p>
+        <p><a href="mailto:bookings@amonrat.com.au"><u>bookings@amonrat.com.au</u></a></p>
+        <a class="btn" href="mailto:bookings@amonrat.com.au?subject=Catering%20Enquiry%20-%20Chat%20Thai">Catering Enquiry</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p><strong>Chat Thai</strong> · Sydney · <a href="mailto:bookings@amonrat.com.au">bookings@amonrat.com.au</a></p>
+  </footer>
+</body>
+</html>
+
+

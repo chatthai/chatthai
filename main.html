@@ -410,6 +410,90 @@ header > * {
   border: 3px solid #0b0b0b;
 }
 
+@media (max-width: 900px) {
+  nav {
+    align-items: center;
+    padding: 18px 7%;
+    gap: 12px;
+  }
+
+  .nav-links {
+    display: flex;
+    margin-left: auto;
+    font-size: 12px;
+  }
+
+  .nav-links a {
+    background: #ffc210;
+    color: #0b0b0b;
+    padding: 9px 13px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .logo img {
+    height: 74px;
+    max-width: 140px;
+  }
+
+  .hero {
+    padding: 50px 7% 70px;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: clamp(42px, 16vw, 66px);
+    letter-spacing: -0.05em;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .location-tabs {
+    gap: 8px;
+  }
+
+  .location-tab {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 6px;
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+
+  section {
+    padding: 56px 7%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .card {
+    width: 100%;
+    min-height: auto;
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .card h3 {
+    font-size: 22px;
+  }
+
+  .card .btn,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+}
+
 
 
   </style>

@@ -380,18 +380,30 @@ header > * {
     footer strong {
       color: #ffc210;
     }
+@media (max-width: 900px) {
+  nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 7%;
+    gap: 12px;
+  }
 
-  @media (max-width: 900px) {
   .nav-links {
-    display: block !important;
-    position: absolute;
-    top: 34px;
-    right: 7%;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    gap: 10px;
+    margin-left: auto;
+    position: static;
     z-index: 20;
   }
 
   .nav-links a {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: #ffc210;
     color: #0b0b0b;
     padding: 9px 13px;
@@ -400,8 +412,6 @@ header > * {
     font-weight: 900;
     white-space: nowrap;
   }
-}
-
 
   .cards,
   .split,
@@ -427,30 +437,6 @@ header > * {
   }
 }
 
-
-      .cards,
-      .split,
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 80px;
-      }
-
-      .logo img {
-        height: 74px;
-        max-width: 140px;
-      }
-
-      .image-box {
-        min-height: 320px;
-      }
-
-      .menu-item {
-        flex-direction: column;
-      }
-    }
 
   .location-tabs {
   display: flex;

@@ -381,10 +381,50 @@ header > * {
       color: #ffc210;
     }
 
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
+  @media (max-width: 900px) {
+  nav {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+  }
+
+  .nav-links a {
+    background: #ffc210;
+    color: #0b0b0b;
+    padding: 9px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .cards,
+  .split,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 80px;
+  }
+
+  .logo img {
+    height: 74px;
+    max-width: 140px;
+  }
+
+  .image-box {
+    min-height: 320px;
+  }
+
+  .menu-item {
+    flex-direction: column;
+  }
+}
+
 
       .cards,
       .split,

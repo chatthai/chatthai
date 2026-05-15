@@ -382,24 +382,26 @@ header > * {
     }
 
   @media (max-width: 900px) {
-  nav {
-    align-items: flex-start;
-    gap: 16px;
-  }
-
   .nav-links {
-    display: flex;
-    gap: 12px;
-    font-size: 12px;
+    display: block !important;
+    position: absolute;
+    top: 34px;
+    right: 7%;
+    z-index: 20;
   }
 
   .nav-links a {
+    display: inline-block;
     background: #ffc210;
     color: #0b0b0b;
-    padding: 9px 12px;
+    padding: 9px 13px;
     border-radius: 999px;
+    font-size: 12px;
+    font-weight: 900;
     white-space: nowrap;
   }
+}
+
 
   .cards,
   .split,
